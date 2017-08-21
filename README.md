@@ -47,7 +47,19 @@ There are two different types of factory pattern
   with the client at the same level
 
 ## What is Session? ##
-The Hibernate Session can be considered as an object that does a small unit of work, it is short lived and wraps the JDBC 
+The Hibernate Session can be considered as an object that does a small unit of work, it is the run time interface between the ORM(Hibernate) and the Java application
 - It is used to get a physical connection with a database and provides an interface between application and data
   stored in the database.
-- 
+- The interface provides methods to insert, update and delete the instances of mapped entity classes.
+
+## Trasaction Control with Spring and Hibernate ## 
+Spring and Hibernate usually deal with transactions at different levels. Hibernate's transactions are specifically related to changes made within a database while Springs concept of transaction is at a higher level than the database specific transactions.
+- Scenario : Lets us conisder funds are being transferred from one account to another account, it involves many steps.
+  * Verifying the account of funds transferring from and to.
+  * The amount being transferred actaully exists in the transferring account
+  * Amount has been deducted and added to the to and from accounts
+ This scenario requires a particualr sequence of methods to be run and database calls to be made, so if an error occurs either during the database calls or during follwing of the sequence of steps they have to be reset and started Over. This can be achieve by using transaction management provided by Spring and Hibernate, hibernate managing the rollback of database call while Spring manages the roll back of sequence of steps if necessary.
+ 
+Spring : It provides control over both Programmatic and Declarative transactions and the transaction managers delegate the responsibility to platform specific transaction management APIs such as JPATransaction manager, Hibernate Transaction manager, datasource transaction manager etc. _@Transactional_ annotation can be used on the method to manage the transaction in spring.
+
+Hibernate: Hibernate has a Transaction interface which maintains abstraction from transaction implementation(JTA,JDBC). It is associate with Session and instantiated by calling session.beginTransaction().The transaction interface have two main methods commit()(to end a transcation) and rollback()(rollback the transaction) by the use of which control of a transaction is achieved.
