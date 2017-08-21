@@ -1,6 +1,6 @@
 package com.java.assessment.DesignPattern.FactoryPattern;
 
-import com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses.Package;
+import com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses.Package;
 
 /**
  * Client for Netflix subscription factory.
@@ -10,13 +10,12 @@ import com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses.Package;
 public class Client {
     public static void main(String[] args) {
         Client c = new Client();
-        SubscriptionFactory sf = new SubscriptionFactory();
         //Select the package depending on clients budget
-        Package subscription = sf.selectPackage(7.99);
+        Package subscription = SubscriptionFactory.selectPackage(7.99);
         c.print(subscription);
 
         //Get the current subscription details depending on transaction ID
-        Package subscription2 = sf.packageDetails("1/Bruce/20170525");
+        Package subscription2 = SubscriptionFactory.packageDetails("1/Bruce/20170525");
         c.print(subscription2);
     }
 

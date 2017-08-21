@@ -2,8 +2,8 @@ package com.java.assessment.DesignPattern.AbstractFactoryPattern.AbstractFactory
 
 import com.java.assessment.DesignPattern.AbstractFactoryPattern.HuluClasses.HuluPackage;
 import com.java.assessment.DesignPattern.AbstractFactoryPattern.HuluClasses.HuluSubscriptionFactory;
-import com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses.Package;
-import com.java.assessment.DesignPattern.FactoryPattern.SubscriptionFactory;
+import com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses.NetflixFactory;
+import com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses.Package;
 
 /**
  * Abstract Factory that return the required factory{HuluSubscriptionFactory or SubscriptionFactory}
@@ -16,20 +16,20 @@ public abstract class StreamingFactory {
             case HULU:
                 return new HuluSubscriptionFactory();
             case NETFLIX:
-                return new SubscriptionFactory();
+                return new NetflixFactory();
             default:
                 return null;
         }
     }
 
     //Abstract methods implemented by the factory classes.
-    public abstract Package selectPackage(double budget);
+    public abstract Package selectNetflixPackage(double budget);
 
-    public abstract Package packageDetails(String transactionId);
+    public abstract Package netflixPackageDetails(String transactionId);
 
     public abstract HuluPackage selectHuluPackage(double budget);
 
-    public abstract HuluPackage packageHuluDetails(String transactionId);
+    public abstract HuluPackage huluPackageDetails(String transactionId);
 
     public enum StreamingService {HULU, NETFLIX}
 }

@@ -1,4 +1,4 @@
-package com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses;
+package com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

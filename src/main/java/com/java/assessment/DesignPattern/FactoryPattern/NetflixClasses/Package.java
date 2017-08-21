@@ -1,4 +1,4 @@
-package com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses;
+package com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses;
 
 /**
  * Netflix Package interface

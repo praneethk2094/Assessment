@@ -2,7 +2,7 @@ package com.java.assessment.DesignPattern.AbstractFactoryPattern.HuluClasses;
 
 import com.java.assessment.DesignPattern.AbstractFactoryPattern.AbstractFactory.StreamingFactory;
 import com.java.assessment.DesignPattern.Exception.TransactionException;
-import com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses.Package;
+import com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses.Package;
 
 /**
  * Hulu Subscription Factory that generates the required instances depending on the user needs.
@@ -26,7 +26,7 @@ public class HuluSubscriptionFactory extends StreamingFactory {
      * depending on the transactionId
      */
     @Override
-    public HuluPackage packageHuluDetails(String transactionId) {
+    public HuluPackage huluPackageDetails(String transactionId) {
         String[] data = transactionId.split("/");
         int selection = 0;
         if (data[0].equals("1")) selection = 1;
@@ -52,12 +52,12 @@ public class HuluSubscriptionFactory extends StreamingFactory {
     }
 
     @Override
-    public Package selectPackage(double budget) {
+    public Package selectNetflixPackage(double budget) {
         return null;
     }
 
     @Override
-    public Package packageDetails(String transactionId) {
+    public Package netflixPackageDetails(String transactionId) {
         return null;
     }
 }

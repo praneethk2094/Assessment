@@ -1,20 +1,20 @@
-package com.java.assessment.DesignPattern.FactoryPattern.ConcreteClasses;
+package com.java.assessment.DesignPattern.FactoryPattern.NetflixClasses;
 
 /**
- * Netflix Package Standard with custom details.
+ * Netflix Package Premium with custom details.
  * Implements Package Interface
  */
-public class Standard implements Package {
-    private String type = "Standard";
-    private double cost = 9.99;
+public class Premium implements Package {
+    private String type = "Premium";
+    private double cost = 11.99;
     private String timeline = "1 Month";
-    private int screens = 2;
+    private int screens = 4;
     private SubscriptionDetails subscriptionDetails;
 
-    public Standard(SubscriptionDetails subscriptionDetails) {
+
+    public Premium(SubscriptionDetails subscriptionDetails) {
         this.subscriptionDetails = subscriptionDetails;
     }
-
 
     public SubscriptionDetails getSubscriptionDetails() {
         return subscriptionDetails;
